@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Analyzer - Music Suggester</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="grid-background"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo glitch" data-text="MOOD.AI">MOOD.AI</h1>
+            <p class="tagline">Neural Emotion Detection & Music Synthesis</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Camera Section -->
+            <section class="camera-section">
+                <div class="camera-container">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                    <div class="camera-overlay">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+                <button id="captureBtn" class="neon-button">
+                    <span class="button-text">SCAN EMOTION</span>
+                    <span class="button-glow"></span>
+                </button>
+            </section>
+
+            <!-- Mood Display Section -->
+            <section id="moodSection" class="mood-section hidden">
+                <div class="mood-card">
+                    <div class="mood-header">
+                        <span class="mood-label">DETECTED EMOTION</span>
+                        <div class="pulse-indicator"></div>
+                    </div>
+                    <h2 id="moodText" class="mood-text"></h2>
+                    <div class="mood-visualizer">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Music Recommendations Section -->
+            <section id="recommendationsSection" class="recommendations-section hidden">
+                <h2 class="section-title">
+                    <span class="title-icon">♫</span>
+                    RECOMMENDED TRACKS
+                    <span class="title-icon">♫</span>
+                </h2>
+                <div id="tracksList" class="tracks-grid"></div>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state hidden">
+                <div class="loading-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <p id="loadingText" class="loading-text">ANALYZING NEURAL PATTERNS...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state hidden">
+                <div class="error-icon">⚠</div>
+                <p id="errorText" class="error-text"></p>
+                <button id="retryBtn" class="neon-button small">
+                    <span class="button-text">RETRY</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <span class="highlight">Gemini AI</span> & <span class="highlight">Spotify</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
